@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`users reducer should handle SAVE_USER_LIST 1`] = `
+Object {
+  "currentRecord": null,
+  "mainUserList": Array [
+    Object {
+      "company": "Doe Company",
+      "email": "john@document.com",
+      "id": 1,
+      "name": "John Doe",
+    },
+    Object {
+      "company": "Sam Company",
+      "email": "sam@ddun.com",
+      "id": 2,
+      "name": "Sam Dun",
+    },
+  ],
+  "searchText": "",
+  "userList": Array [
+    Object {
+      "company": "Doe Company",
+      "email": "john@document.com",
+      "id": 1,
+      "name": "John Doe",
+    },
+    Object {
+      "company": "Sam Company",
+      "email": "sam@ddun.com",
+      "id": 2,
+      "name": "Sam Dun",
+    },
+  ],
+  "userPosts": Array [],
+}
+`;
+
+exports[`users reducer should handle SET_CURRENT_RECORD 1`] = `
+Object {
+  "currentRecord": 2,
+  "mainUserList": Array [],
+  "searchText": "",
+  "userList": Array [],
+  "userPosts": Array [],
+}
+`;
+
+exports[`users reducer should handle TODO_REQUEST 1`] = `
+Object {
+  "currentRecord": null,
+  "mainUserList": Array [
+    Object {
+      "company": "Doe Company",
+      "email": "john@document.com",
+      "id": 1,
+      "name": "John Doe",
+    },
+  ],
+  "searchText": "",
+  "userList": Array [
+    Object {
+      "company": "Doe Company",
+      "email": "john@document.com",
+      "id": 1,
+      "name": "John Doe",
+    },
+  ],
+  "userPosts": Array [],
+}
+`;
+
+exports[`users reducer should return the initial state 1`] = `
+Object {
+  "currentRecord": null,
+  "mainUserList": Array [],
+  "searchText": "",
+  "userList": Array [],
+  "userPosts": Array [],
+}
+`;

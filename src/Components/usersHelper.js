@@ -9,13 +9,13 @@ export const getUserData = userList => {
   return userData;
 };
 
-export const onSearch = (e, filterUserList) => {
-  filterUserList(e.target.value);
+export const onSearch = (e, filterUserList, dispatch) => {
+  dispatch(filterUserList(e.target.value));
 };
 
-export const fetchUserList = async (saveUserList) => {
+export const fetchUserList = async (saveUserList, dispatch) => {
   const response = await axios.get(`${jsonPlaceholderApi}/users`);
   if (response?.status === 200 && response.data.length) {
-    saveUserList([...response.data]);
+    dispatch(saveUserList([...response.data]));
   }
 };

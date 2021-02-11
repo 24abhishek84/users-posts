@@ -2,9 +2,16 @@ export const jsonPlaceholderApi = 'https://jsonplaceholder.typicode.com';
 
 export const userColumns = [
   {
+    title: 'ID',
+    dataIndex: 'id',
+    key: 'id'
+  },
+  {
     title: 'Name',
     dataIndex: 'name',
-    key: 'name'
+    key: 'name',
+    sorter: (a, b) => a.name.length - b.name.length,
+    sortDirections: ['descend']
   },
   {
     title: 'Email',

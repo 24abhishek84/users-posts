@@ -1,18 +1,22 @@
-const initialState = {
+export const initialState = {
     mainUserList: [],
     userList: [],
     currentRecord: null,
-    userPosts: []
+    userPosts: [],
+    searchText: ''
 };
 
 const common = (state = initialState, action = {}) => {
-  const {mainUserList} = state;
+  const {mainUserList, searchText} = state;
   switch (action.type) {
     case 'SAVE_USER_LIST':
       return {...state, mainUserList: [...action.payload], userList: [...action.payload]};
     case 'FILTER_USER_LIST':
-      const filteredUserList = mainUserList.filter(x => x.name.toLowerCase().includes(action.payload.toLowerCase()));
-      return {...state, userList: [...filteredUserList]};
+      console.log('action.payload', action.payload);
+      console.log('searchText', state.searchText);
+      const search = action.payload ? action.payload.toLowerCase() : searchText;
+      const filteredUserList = search ? mainUserList.filter(x => x.name.toLowerCase().includes(search)) : [...mainUserList];
+      return {...state, userList: [...filteredUserList], searchText: action.payload};
     case 'SET_CURRENT_RECORD':
       console.log('action.payload', action.payload);
       return {...state, currentRecord: action.payload?.id};
