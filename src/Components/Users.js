@@ -14,8 +14,9 @@ const Users = () => {
   const dispatch = useDispatch();
   const { userList, searchText } = useSelector(state => ({
     userList: state.users.userList,
-    searchText: state.searchText,
+    searchText: state.users.searchText,
   }), shallowEqual);
+
 
   useEffect(() => {
     fetchUserList(saveUserList, dispatch);
@@ -45,8 +46,8 @@ const Users = () => {
         {userData.length > 0 &&
           <>
             {/* Search the records by name (case insensitive search) */}
-            <div style={{display: 'flex', flexDirection: 'row', padding: 20}}>
-              <Search placeholder="input search text" onChange={(e) => onSearch(e, filterUserList, dispatch)} style={{ width: 200, marginBottom: 24 }} />
+            <div style={{display: 'flex', flexDirection: 'row'}}>
+              <Search placeholder="input search text" onChange={(e) => onSearch(e, filterUserList, dispatch)} style={{ width: 200, marginBottom: 24, marginRight: '24px' }} />
               <Button type={'primary'} onClick={() => onRefreshList()}>Refresh</Button>
             </div>
 
